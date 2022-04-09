@@ -1,11 +1,11 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "aws-copilot-github-action"
+description: ""
+author: "ksivamuthu"
 inputs:
-  milliseconds: # change this
+  command: # change this
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+    description: "command"
+    default: "install"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
