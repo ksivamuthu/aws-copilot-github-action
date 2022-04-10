@@ -1,0 +1,29 @@
+name: "AWS Copilot"
+description: "AWS Copilot GitHub Action"
+author: "ksivamuthu"
+inputs:
+  command:
+    required: true
+    description: "command"
+    default: "install"
+  app:
+    required: false
+    description: "application name"
+  env:
+    required: false
+    description: "environment name"
+  force:
+    required: false
+    default: "false"
+    description: "run force"
+  path:
+    required: false
+    description: "path name"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
+
+branding:
+  color: orange
+  icon: box
