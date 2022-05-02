@@ -16,7 +16,7 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
-      - uses: aws-copilot-github-action
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.1
         with:
           command: install
       - run: |
@@ -35,7 +35,7 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
-      - uses: aws-copilot-github-action
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.1
         with:
           command: deploy
           app: your-awesome-app
