@@ -5,6 +5,7 @@ import { cacheFile, downloadTool, find } from '@actions/tool-cache'
 import { chmodSync } from 'fs'
 import { exec } from '@actions/exec'
 import { HttpClient } from '@actions/http-client'
+import { BearerCredentialHandler } from '@actions/http-client/auth'
 
 const COPILOT_CLI_TOOL_NAME = 'aws-copilot-cli'
 
@@ -65,7 +66,19 @@ async function install(): Promise<void> {
 }
 
 async function getLatestVersion(): Promise<string> {
-  const http = new HttpClient('aws-copilot-release')
+  const token = process.env['GITHUB_TOKEN']
+  const handlers = []
+
+  if (token) {
+    core.info('Using GITHUB_TOKEN to get latest version')
+    handlers.push(new BearerCredentialHandler(token))
+  }
+
+  const http = new HttpClient('aws-copilot-release', handlers, {
+    allowRetries: true,
+    maxRetries: 3
+  })
+
   const response = await http.getJson(
     'https://api.github.com/repos/aws/copilot-cli/releases/latest'
   )
