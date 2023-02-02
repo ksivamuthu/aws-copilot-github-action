@@ -124,7 +124,7 @@ async function deployApp(): Promise<void> {
   const env = core.getInput('env')
   const path = core.getInput('path') || '.'
 
-  const force = false;
+  const force = core.getInput('force') === 'true'
 
   if (!app) {
     throw new Error('App name is required')
