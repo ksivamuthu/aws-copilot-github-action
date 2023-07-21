@@ -122,6 +122,7 @@ async function deployApp(): Promise<void> {
 
   const app = core.getInput('app')
   const env = core.getInput('env')
+  const tag = core.getInput('tag')
   const path = core.getInput('path') || '.'
 
   const force = core.getInput('force') === 'true'
@@ -140,6 +141,7 @@ async function deployApp(): Promise<void> {
     app,
     '--env',
     env,
+    tag ? `--tag ${tag}` : '',
     force ? '--force' : ''
   ], { cwd: path });
 
