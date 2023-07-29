@@ -42,3 +42,36 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
           env: prod
           force: false # optional
 ```
+
+
+## Optional parameters
+
+### Name
+
+In the with attribute, the name value can be used to define the name of the job to be published
+
+```
+  deploy:
+    steps:
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.5
+        with:
+          command: deploy
+          app: your-awesome-app
+          env: prod
+          name: job-name
+```
+
+### Tag
+
+In the with attribute, the tag value can be used to define the tag image name
+
+```
+  deploy:
+    steps:
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.5
+        with:
+          command: deploy
+          app: your-awesome-app
+          env: prod
+          tag: image-name
+```
