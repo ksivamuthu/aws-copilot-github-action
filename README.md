@@ -53,7 +53,7 @@ In the with attribute, the name value can be used to define the name of the job 
 ```
   deploy:
     steps:
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.5
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.6
         with:
           command: deploy
           app: your-awesome-app
@@ -68,7 +68,7 @@ In the with attribute, the tag value can be used to define the tag image name
 ```
   deploy:
     steps:
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.5
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.6
         with:
           command: deploy
           app: your-awesome-app
