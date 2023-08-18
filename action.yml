@@ -16,6 +16,12 @@ inputs:
     required: false
     default: "false"
     description: "run force"
+  name:
+    required: false
+    description: "service name"
+  tag:
+    required: false
+    description: "ecr tag name"
   path:
     required: false
     description: "path name"
