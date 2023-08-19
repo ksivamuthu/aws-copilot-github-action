@@ -149,6 +149,7 @@ function deployApp() {
         const env = core.getInput('env');
         const name = core.getInput('name');
         const tag = core.getInput('tag');
+        const resourceTags = core.getInput('resource-tags');
         const path = core.getInput('path') || '.';
         const force = core.getInput('force') === 'true';
         if (!app) {
@@ -157,16 +158,14 @@ function deployApp() {
         if (!env) {
             throw new Error('Environment is required');
         }
-        const deploy = yield (0, exec_1.exec)('copilot', [
-            'deploy',
-            '--app',
-            app,
-            '--env',
-            env,
-            name ? `--name ${name}` : '',
-            tag ? `--tag ${tag}` : '',
-            force ? '--force' : ''
-        ], { cwd: path });
+        const cmd = `copilot deploy \
+  --app ${app} \
+  --env ${env} \
+  ${name ? `--name ${name}` : ''} \
+  ${tag ? `--tag ${tag}` : ''} \
+  ${force ? '--force' : ''} \
+  ${resourceTags ? `--resource-tags ${resourceTags}` : ''}`;
+        const deploy = yield (0, exec_1.exec)(cmd, [], { cwd: path });
         core.debug(`Deploying app ${app} to env ${env} ${force ? 'with force' : ''} is done ${deploy}`);
         core.info('Copilot application deployed successfully');
     });

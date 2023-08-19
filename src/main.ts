@@ -124,6 +124,7 @@ async function deployApp(): Promise<void> {
   const env = core.getInput('env')
   const name = core.getInput('name')
   const tag = core.getInput('tag')
+  const resourceTags = core.getInput('resource-tags')
   const path = core.getInput('path') || '.'
 
   const force = core.getInput('force') === 'true'
@@ -136,19 +137,19 @@ async function deployApp(): Promise<void> {
     throw new Error('Environment is required')
   }
 
-  const deploy = await exec('copilot', [
-    'deploy',
-    '--app',
-    app,
-    '--env',
-    env,
-    name ? `--name ${name}` : '',
-    tag ? `--tag ${tag}` : '',
-    force ? '--force' : ''
-  ], { cwd: path });
+  const cmd = `copilot deploy \
+  --app ${app} \
+  --env ${env} \
+  ${name ? `--name ${name}` : ''} \
+  ${tag ? `--tag ${tag}` : ''} \
+  ${force ? '--force' : ''} \
+  ${resourceTags ? `--resource-tags ${resourceTags}` : ''}`
+
+  const deploy = await exec(cmd, [], {cwd: path})
 
   core.debug(
-    `Deploying app ${app} to env ${env} ${force ? 'with force' : ''
+    `Deploying app ${app} to env ${env} ${
+      force ? 'with force' : ''
     } is done ${deploy}`
   )
 
