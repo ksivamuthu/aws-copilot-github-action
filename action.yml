@@ -16,6 +16,15 @@ inputs:
     required: false
     default: "false"
     description: "run force"
+  name:
+    required: false
+    description: "service name"
+  tag:
+    required: false
+    description: "ecr tag name"
+  resource-tags:
+    required: false
+    description: "resource tags, comma separated key=value pairs"
   path:
     required: false
     description: "path name"
