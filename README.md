@@ -16,7 +16,7 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.1
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.8
         with:
           command: install
       - run: |
@@ -35,7 +35,7 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.1
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.8
         with:
           command: deploy
           app: your-awesome-app
@@ -53,7 +53,7 @@ In the with attribute, the name value can be used to define the name of the job 
 ```
   deploy:
     steps:
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.6
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.8
         with:
           command: deploy
           app: your-awesome-app
@@ -68,7 +68,7 @@ In the with attribute, the tag value can be used to define the tag image name
 ```
   deploy:
     steps:
-      - uses: ksivamuthu/aws-copilot-github-action@v0.0.6
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.8
         with:
           command: deploy
           app: your-awesome-app
