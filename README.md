@@ -10,9 +10,9 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
@@ -29,9 +29,9 @@ This repo contains the github actions for installing [AWS Copilot cli](https://g
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::111111111111:role/my-github-actions-role-test
           aws-region: us-east-1
@@ -74,4 +74,18 @@ In the with attribute, the tag value can be used to define the tag image name
           app: your-awesome-app
           env: prod
           tag: image-name
+```
+### Version
+
+In the with attribute, the version value can be used to define the copilot version 
+
+```
+  deploy:
+    steps:
+      - uses: ksivamuthu/aws-copilot-github-action@v0.0.8
+        with:
+          command: deploy
+          app: your-awesome-app
+          env: prod
+          version: v1.33.0
 ```
