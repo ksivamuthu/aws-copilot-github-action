@@ -1,6 +1,6 @@
 {
   "name": "aws-copilot-github-action",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": true,
   "description": "AWS Copilot Github Action",
   "main": "lib/main.js",
@@ -42,7 +42,7 @@
     "@vercel/ncc": "^0.33.4",
     "eslint": "^8.13.0",
     "eslint-plugin-github": "^4.3.6",
-    "eslint-plugin-jest": "^26.1.5",
+    "eslint-plugin-jest": "^27.6.3",
     "jest": "^27.5.1",
     "js-yaml": "^4.1.0",
     "prettier": "2.6.2",
